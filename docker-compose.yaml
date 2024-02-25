@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  # nginx:
+  #   build:
+  #     context: ./docker/nginx
+
+  nextjs:
+    build:
+      context: .
+      dockerfile: Dev.Dockerfile
+    container_name: promo-nextjs
+    # image: promo
+    # чтобы node_modules не перетирались, и не шерились с
+    # моими, volume прокидываем для каждой сущности вручную
+    # а для разработки node_modules установим отдельно
+    ports:
+      - 3000:3000
+    volumes:
+      # ./:./
+      - ./.dockerignore:/var/www/nextjs/.dockerignore
+      - ./.editorconfig:/var/www/nextjs/.editorconfig
+      - ./.eslintrc.json:/var/www/nextjs/.eslintrc.json
+      - ./.git:/var/www/nextjs/.git
+      - ./.gitignore:/var/www/nextjs/.gitignore
+      - ./.next:/var/www/nextjs/.next
+      - ./Dev.Dockerfile:/var/www/nextjs/Dev.Dockerfile
+      - ./docker:/var/www/nextjs/docker
+      - ./docker-compose.yaml:/var/www/nextjs/docker-compose.yaml
+      - ./makefile:/var/www/nextjs/makefile
+      - ./next-env.d.ts:/var/www/nextjs/next-env.d.ts
+      - ./next.config.js:/var/www/nextjs/next.config.js
+      - ./package-lock.json:/var/www/nextjs/package-lock.json
+      - ./package.json:/var/www/nextjs/package.json
+      - ./postcss.config.js:/var/www/nextjs/postcss.config.js
+      - ./public:/var/www/nextjs/public
+      - ./readme.md:/var/www/nextjs/readme.md
+      - ./src:/var/www/nextjs/src
+      - ./tailwind.config.ts:/var/www/nextjs/tailwind.config.ts
+      - ./tsconfig.json:/var/www/nextjs/tsconfig.json
