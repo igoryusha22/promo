@@ -4,7 +4,7 @@ import React, { FC } from 'react';
 import { TitleProps } from './Title.props';
 
 const classNames = {
-  h1: 'text-2xl font-extrabold text-black mb-4',
+  h1: 'text-2xl font-extrabold text-eerie-black dark:text-white mb-4',
   h2: '',
   h3: '',
   h4: '',

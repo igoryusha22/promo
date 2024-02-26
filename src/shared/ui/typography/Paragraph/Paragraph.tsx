@@ -10,10 +10,9 @@ export const Paragraph: FC<ParagraphProps> = (props) => {
     <p
       className={cx(
         'text-lg',
-        'text-grey-darkest',
         'leading-normal',
         'text-raisin-black',
-        // 'dark:text-white',
+        'dark:text-white',
         className
       )}
     >

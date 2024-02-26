@@ -20,9 +20,11 @@ const RootLayout = (props: { children: React.ReactNode }) => {
       <body
         className={cx(
           'font-sans',
-          'text-black',
+          'text-eerie-black',
           'leading-tight',
-          'antialiased'
+          'antialiased',
+          'dark:bg-eerie-black',
+          'dark:text-white'
         )}
       >
         <div className={cx('py-8', 'lg:py-16', 'px-6', 'md:px-16', 'lg:px-24')}>

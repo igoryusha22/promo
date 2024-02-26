@@ -11,7 +11,7 @@ const config: Config = {
     extend: {
       colors: {
         'raisin-black': '#242424',
-        'black': '#18181B',
+        'eerie-black': '#18181B',
       },
     },
   },

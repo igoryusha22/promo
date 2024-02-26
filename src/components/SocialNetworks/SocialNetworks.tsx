@@ -13,10 +13,9 @@ export const Nav: FC<NavProps> = (props) => {
       className={twMerge(
         cx(
           'text-lg',
-          'text-grey-darkest',
           'leading-normal',
           'text-raisin-black',
-          // 'dark:text-white',
+          'dark:text-white',
           className
         )
       )}
