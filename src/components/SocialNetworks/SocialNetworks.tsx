@@ -11,13 +11,7 @@ export const Nav: FC<NavProps> = (props) => {
   return (
     <nav
       className={twMerge(
-        cx(
-          'text-lg',
-          'leading-normal',
-          'text-raisin-black',
-          'dark:text-white',
-          className
-        )
+        cx('text-lg', 'leading-normal', 'text-primary', className)
       )}
     >
       <a className="" href="https://github.com/igoruyusha">

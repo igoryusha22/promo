@@ -29,7 +29,7 @@ services:
       - ./docker-compose.yaml:/var/www/nextjs/docker-compose.yaml
       - ./makefile:/var/www/nextjs/makefile
       - ./next-env.d.ts:/var/www/nextjs/next-env.d.ts
-      - ./next.config.js:/var/www/nextjs/next.config.js
+      - ./next.config.mjs:/var/www/nextjs/next.config.mjs
       - ./package-lock.json:/var/www/nextjs/package-lock.json
       - ./package.json:/var/www/nextjs/package.json
       - ./postcss.config.js:/var/www/nextjs/postcss.config.js

@@ -1,18 +1,22 @@
 import cx from 'classnames';
-
 import type { Metadata } from 'next';
+import { GoogleAnalytics } from '@next/third-parties/google';
+
+import { isProduction } from '@/utils/isProduction';
 
 import './globals.css';
+// import { PageLoader } from '@/components/PageLoader/PageLoader';
 
 export const metadata: Metadata = {
-  title: 'Igor Nerusin',
-  description: 'Senior frontend developer',
+  title: 'Игорь Нерусин',
+  description: 'Игорь Нерусин – senior frontend разработчик',
+  keywords: [],
   other: {
-    'google-site-verification': 'm6atag6NQbKhsMjHydz9ZEOkrkO921jsK5qGtH5voWc',
+    'google-site-verification': 'w9HsermTjFmoJY1UWDeWlexYDG4EhbLgB_XBniGYE2U',
   },
 };
 
-const RootLayout = (props: { children: React.ReactNode }) => {
+const Layout = (props: { children: React.ReactNode }) => {
   const { children } = props;
 
   return (
@@ -20,19 +24,20 @@ const RootLayout = (props: { children: React.ReactNode }) => {
       <body
         className={cx(
           'font-sans',
-          'text-eerie-black',
+          'text-primary',
           'leading-tight',
-          'antialiased',
-          'dark:bg-eerie-black',
-          'dark:text-white'
+          'bg-primary',
+          'antialiased'
         )}
       >
-        <div className={cx('py-8', 'lg:py-16', 'px-6', 'md:px-16', 'lg:px-24')}>
-          {children}
-        </div>
+        {children}
+
+        {/* <PageLoader /> */}
       </body>
+
+      {isProduction() && <GoogleAnalytics gaId="G-9JYMW045MP" />}
     </html>
   );
 };
 
-export default RootLayout;
+export default Layout;
