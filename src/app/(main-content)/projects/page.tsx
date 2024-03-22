@@ -26,7 +26,7 @@ const Projects = async () => {
           description={
             <>
               Расширение для Google Chrome направленное на улучшение удобства
-              пользования платформой{' ˝'}
+              пользования платформой{' '}
               <Link href="https://fastcup.net" variant="solid" isExternal>
                 FASTCUP
               </Link>
