@@ -33,3 +33,8 @@ push.nextjs:
 
 push.nginx:
 	docker push ${REGISTRY}/nginx:build_$(shell cat last_build_date.txt)
+
+copy:
+	export SYNC_DOCKER_ID=`docker run -d ${REGISTRY}/nextjs:build_2024_03_22_18_12_20 true`; \
+	docker cp $${SYNC_DOCKER_ID}:/app/package-lock.json ~/Desktop/ilove/active/promo/package-lock.json; \
+	docker rm $${SYNC_DOCKER_ID}

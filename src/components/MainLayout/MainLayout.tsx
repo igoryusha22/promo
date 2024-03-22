@@ -68,7 +68,6 @@ export const MainLayout: FC<MainLayoutProps> = (props) => {
               {
                 text: 'Проекты',
                 href: '/projects',
-                isUnreleased: true,
               },
             ]}
           />
