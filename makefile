@@ -3,6 +3,9 @@ BUILD_DATE = $(shell date +%Y_%m_%d_%H_%M_%S)
 
 REGISTRY := registry.igoryusha.love/promo
 
+up:
+	docker-compose up
+
 grd:
 	make build
 	make push

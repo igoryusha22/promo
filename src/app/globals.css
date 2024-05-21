@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --color-white: 255 255 255;
+    --color-white: 255 255 255; /* #ffffff */
 
     --color-dark-75: 228 228 228; /* #e4e4e4 */
     --color-dark-100: 220 220 220; /* #dcdcdc */
@@ -15,51 +15,55 @@
     --color-dark-625: 62 62 62; /* #3e3e3e */
     --color-dark-800: 23 23 23; /* #171717 */
 
-    --color-green-75: #bdfa8d; /* #bdfa8d */
-    --color-green-100: #a6f859; /* #a6f859 */
-    --color-green-175: #8fdf3d; /* #8fdf3d */
-    --color-green-250: #7bc626; /* #7bc626 */
-    --color-green-350: #62a01d; /* #62a01d */
-    --color-green-500: #477512; /* #477512 */
-    --color-green-625: #2a4808; /* #2a4808 */
-    --color-green-800: #0d1c02; /* #0d1c02 */
+    --color-green-75: 189 250 141; /* #bdfa8d */
+    --color-green-100: 166 248 89; /* #a6f859 */
+    --color-green-175: 143 223 61; /* #8fdf3d */
+    --color-green-250: 123 198 38; /* #7bc626 */
+    --color-green-350: 98 160 29; /* #62a01d */
+    --color-green-500: 71 117 18; /* #477512 */
+    --color-green-625: 42 72 8; /* #2a4808 */
+    --color-green-800: 13 28 2; /* #0d1c02 */
 
-    --color-brown-75: #f9dfcb; /* #f9dfcb */
-    --color-brown-100: #f8d5b8; /* #f8d5b8 */
-    --color-brown-175: #f7bb88; /* #f7bb88 */
-    --color-brown-250: #e2872b; /* #e2872b */
-    --color-brown-350: #c77623; /* #c77623 */
-    --color-brown-500: #925519; /* #925519 */
-    --color-brown-625: #5b330b; /* #5b330b */
-    --color-brown-800: #251203; /* #251203 */
+    --color-brown-75: 249 223 203; /* #f9dfcb */
+    --color-brown-100: 248 213 184; /* #f8d5b8 */
+    --color-brown-175: 247 187 136; /* #f7bb88 */
+    --color-brown-250: 226 135 43; /* #e2872b */
+    --color-brown-350: 199 118 35; /* #c77623 */
+    --color-brown-500: 146 85 25; /* #925519 */
+    --color-brown-625: 91 51 11; /* #5b330b */
+    --color-brown-800: 37 18 3; /* #251203 */
 
-    --color-red-75: #f8dedc; /* #f8dedc */
-    --color-red-100: #f7d2d0; /* #f7d2d0 */
-    --color-red-175: #f5b7b3; /* #f5b7b3 */
-    --color-red-250: #f48c89; /* #f48c89 */
-    --color-red-350: #f0434e; /* #f0434e */
-    --color-red-500: #cb303c; /* #cb303c */
-    --color-red-625: #72171e; /* #72171e */
-    --color-red-800: #300608; /* #300608 */
+    --color-red-75: 248 222 220; /* #f8dedc */
+    --color-red-100: 247 210 208; /* #f7d2d0 */
+    --color-red-175: 245 183 179; /* #f5b7b3 */
+    --color-red-250: 244 140 137; /* #f48c89 */
+    --color-red-350: 240 67 78; /* #f0434e */
+    --color-red-500: 203 48 60; /* #cb303c */
+    --color-red-625: 114 23 30; /* #72171e */
+    --color-red-800: 48 6 8; /* #300608 */
 
-    --color-blue-75: #d6e6fa; /* #d6e6fa */
-    --color-blue-100: #c8dff9; /* #c8dff9 */
-    --color-blue-175: #a6cdfa; /* #a6cdfa */
-    --color-blue-250: #70b2fd; /* #70b2fd */
-    --color-blue-350: #1183e8; /* #1183e8 */
-    --color-blue-500: #0e67b7; /* #0e67b7 */
-    --color-blue-625: #043f74; /* #043f74 */
-    --color-blue-800: #011730; /* #011730 */
+    --color-blue-75: 214 230 250; /* #d6e6fa */
+    --color-blue-100: 200 223 249; /* #c8dff9 */
+    --color-blue-175: 166 205 250; /* #a6cdfa */
+    --color-blue-250: 112 178 253; /* #70b2fd */
+    --color-blue-350: 17 131 232; /* #1183e8 */
+    --color-blue-500: 14 103 183; /* #0e67b7 */
+    --color-blue-625: 4 63 116; /* #043f74 */
+    --color-blue-800: 1 23 48; /* #011730 */
+
+    --color-background-primary: var(--color-white);
+    --color-background-secondary: var(--color-blue-75);
+
+    --color-text-primary: var(--color-dark-800);
+    --color-text-secondary: var(--color-dark-500);
   }
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --color-background-primary: var(--color-dark-800);
-      --color-background-secondary: var(--color-dark-700);
+  .dark:root {
+    --color-background-primary: var(--color-dark-800);
+    --color-background-secondary: var(--color-dark-700);
 
-      --color-text-primary: var(--color-white);
-      --color-text-secondary: var(--color-dark-175);
-    }
+    --color-text-primary: var(--color-white);
+    --color-text-secondary: var(--color-dark-175);
   }
 }
 

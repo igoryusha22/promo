@@ -7,6 +7,8 @@ import { FC } from 'react';
 import { Text } from '@igoryusha22/promo-ui/Text';
 
 import { Nav } from '@/shared/components/Nav';
+import { SocialLinks } from '@/shared/components/SocialLinks';
+import { ThemeToggler } from '@/shared/components/ThemeToggler';
 
 import { MainLayoutProps } from './MainLayout.types';
 
@@ -76,6 +78,19 @@ export const MainLayout: FC<MainLayoutProps> = (props) => {
 
       <div className={cx('lg:ml-32', 'mt-12', 'max-w-screen-sm')}>
         {children}
+
+        <div className={cx('flex', 'mt-10')}>
+          <ThemeToggler />
+
+          <div
+            className={cx('mx-5', 'bg-current', 'rounded-full')}
+            style={{
+              width: '0.125rem',
+            }}
+          />
+
+          <SocialLinks />
+        </div>
       </div>
     </div>
   );

@@ -9,10 +9,14 @@ const config: Config = {
     './src/pages/s**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+
+  darkMode: 'selector',
+
   theme: {
     backgroundColor: {
       primary: 'rgb(var(--color-background-primary) / <alpha-value>)',
       secondary: 'rgb(var(--color-background-secondary) / <alpha-value>)',
+      current: 'currentColor',
     },
 
     textColor: {
@@ -41,6 +45,7 @@ const config: Config = {
       }),
     },
   },
+
   plugins: [TypographyPlugin],
 };
 

@@ -4,6 +4,8 @@ import { Link } from '@igoryusha22/promo-ui/Link';
 import { Text } from '@igoryusha22/promo-ui/Text';
 import { TextGroup } from '@igoryusha22/promo-ui/TextGroup';
 
+import { TELEGRAM_LINK } from '@/shared/constants/TELEGRAM_LINK';
+
 const Home = () => {
   return (
     <main>
@@ -14,12 +16,7 @@ const Home = () => {
       <TextGroup>
         <Text as="p" size="lg">
           Я{' '}
-          <Link
-            variant="solid"
-            weight="bold"
-            href="https://t.me/igoryusha22"
-            isExternal
-          >
+          <Link variant="solid" weight="bold" href={TELEGRAM_LINK} isExternal>
             @igoryusha22
           </Link>
           , senior <span className={cx('line-through')}>fullstack</span>{' '}
