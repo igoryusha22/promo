@@ -1,20 +1,17 @@
-FROM node:20-alpine AS base
+FROM oven/bun:1.0.34-alpine as vendor
 
-FROM base AS deps
+WORKDIR /opt/vendor
 
-RUN apk add --no-cache libc6-compat
-WORKDIR /app
+COPY package.json .
+COPY bun*.lockb .
 
-COPY package.json ./
-COPY package-lock.json ./
+RUN bun install
 
-RUN npm ci
-
-FROM base AS builder
+FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-COPY --from=deps /app/node_modules ./node_modules
+COPY --from=vendor /opt/vendor/node_modules ./node_modules
 
 COPY . .
 
