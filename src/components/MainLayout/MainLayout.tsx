@@ -78,19 +78,19 @@ export const MainLayout: FC<MainLayoutProps> = (props) => {
 
       <div className={cx('lg:ml-32', 'mt-12', 'max-w-screen-sm')}>
         {children}
+      </div>
 
-        <div className={cx('flex', 'mt-10')}>
-          <ThemeToggler />
+      <div className={cx('flex', 'lg:ml-32', 'mt-12')}>
+        <ThemeToggler />
 
-          <div
-            className={cx('mx-5', 'bg-current', 'rounded-full')}
-            style={{
-              width: '0.125rem',
-            }}
-          />
+        <div
+          className={cx('md:mx-6', 'mx-4', 'bg-current', 'rounded-full')}
+          style={{
+            width: '0.125rem',
+          }}
+        />
 
-          <SocialLinks />
-        </div>
+        <SocialLinks />
       </div>
     </div>
   );

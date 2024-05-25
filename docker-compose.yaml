@@ -3,20 +3,27 @@ version: '3'
 services:
   # nginx:
   #   build:
-  #     context: ./docker/nginx
+  #     context: .
+  #     dockerfile: ./docker/nginx/Dockerfile
+  #   container_name: promo-nginx
+  #   volumes:
+  #     - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+  #   ports:
+  #     - 80:80
 
   nextjs:
     build:
       context: .
       dockerfile: Dev.Dockerfile
     container_name: promo-nextjs
-    # image: promo
-    # чтобы node_modules не перетирались, и не шерились с
-    # моими, volume прокидываем для каждой сущности вручную
-    # а для разработки node_modules установим отдельно
+
     # для разработки в vscode-remote не нужно пробрасывать порты
     # ports:
     #   - 3000:3000
+
+    # чтобы node_modules не перетирались, и не шерились с
+    # моими, volume прокидываем для каждой сущности вручную
+    # а для разработки node_modules установим отдельно
     volumes:
       # ./:./
       - ./.dockerignore:/var/www/nextjs/.dockerignore
