@@ -19,8 +19,25 @@ const Home = () => {
           <Link variant="solid" weight="bold" href={TELEGRAM_LINK} isExternal>
             @igoryusha22
           </Link>
-          , senior <span className={cx('line-through')}>fullstack</span>{' '}
-          frontend разработчик, муж, отец прекрасного{' '}
+          , frontend архитектор в{' '}
+          <Link
+            variant="solid"
+            weight="bold"
+            href="https://amocrm.ru"
+            isExternal
+          >
+            amoCRM
+          </Link>
+          /
+          <Link
+            variant="solid"
+            weight="bold"
+            href="https://kommo.com"
+            isExternal
+          >
+            Kommo
+          </Link>
+          , муж, отец прекрасного{' '}
           <Link
             variant="solid"
             weight="bold"
@@ -47,7 +64,7 @@ const Home = () => {
         </Text>
 
         <Text as="p" size="lg">
-          Не боюсь legacy, ищу вызовы, хочу неизвиданное{' '}
+          Не боюсь legacy, ищу вызовы, хочу в неизведанное{' '}
           <span className={cx('line-through')}>и много денег</span>.
         </Text>
 

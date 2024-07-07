@@ -1,6 +1,5 @@
 import cx from 'classnames';
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import {
   DARK_THEME,
@@ -17,12 +16,13 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Игорь Нерусин',
-  description: 'Игорь Нерусин – senior frontend разработчик',
+  description: 'Игорь Нерусин – frontend архитектор',
   keywords: [
     'Игорь Нерусин',
     'frontend',
     'frontend разработчик',
     'frontend developer',
+    'frontend архитектор',
     'senior',
   ],
   other: {
