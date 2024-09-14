@@ -21,7 +21,7 @@ const Projects = async () => {
       <CardGroup className={cx('mt-12')}>
         <Card
           isExternal
-          href="https://chromewebstore.google.com/detail/fastcup-enhancer/cbhlbndhleffcggbifpegbmampiakfbk"
+          href="https://fastcup-enhancer.ru"
           title="Fastcup Enhancer"
           description={
             <>
