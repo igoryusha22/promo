@@ -63,10 +63,10 @@ export const MainLayout: FC<MainLayoutProps> = (props) => {
 
           <Nav
             items={[
-              {
-                text: 'Статьи',
-                href: '/articles',
-              },
+              // {
+              //   text: 'Статьи',
+              //   href: '/articles',
+              // },
               {
                 text: 'Проекты',
                 href: '/projects',
