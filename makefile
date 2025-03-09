@@ -1,5 +1,4 @@
 BUILD_DATE = $(shell date +%Y_%m_%d_%H_%M_%S)
-# BUILD_DATE = latest
 
 REGISTRY := registry.igoryusha.love/promo
 
@@ -36,8 +35,3 @@ push.nextjs:
 
 push.nginx:
 	docker push ${REGISTRY}/nginx:build_$(shell cat last_build_date.txt)
-
-copy:
-	export SYNC_DOCKER_ID=`docker run -d ${REGISTRY}/nextjs:build_2024_03_22_18_12_20 true`; \
-	docker cp $${SYNC_DOCKER_ID}:/app/package-lock.json ~/Desktop/ilove/active/promo/package-lock.json; \
-	docker rm $${SYNC_DOCKER_ID}
