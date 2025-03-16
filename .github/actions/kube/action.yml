@@ -24,6 +24,7 @@ runs:
     - name: Configure Kubernetes context
       shell: bash
       run: |
+        export KUBECONFIG=$HOME/.kube/config
         kubectl config set-cluster igoryusha22-cluster --server=${INPUT_KUBE_API_SERVER} --certificate-authority=$(echo "${INPUT_KUBE_CA}" | base64 --decode)
         kubectl config set-credentials deployer --token=$(echo "${INPUT_KUBE_TOKEN}" | base64 --decode)
         kubectl config set-context deploy-context --cluster=igoryusha22-cluster --user=deployer --namespace=${INPUT_KUBE_NAMESPACE}
