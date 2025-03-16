@@ -7,12 +7,15 @@ build:
 	-f $(dockerfile) \
 	.
 
+login:
+	echo $(CI_REGISTRY_PASSWORD) | docker login $(CI_REGISTRY) -u $(CI_REGISTRY_USER) --password-stdin
+
 registry:
-	docker login -u $(CI_REGISTRY_USER) -p $(CI_REGISTRY_PASSWORD) $(CI_REGISTRY)
+	make login
 	docker push $(CI_REGISTRY_IMAGE)/$(image):$(BUILD)
 
 deploy:
-	docker login -u $(CI_REGISTRY_USER) -p $(CI_REGISTRY_PASSWORD) $(CI_REGISTRY)
+	make login
 	docker pull $(CI_REGISTRY_IMAGE)/$(image):$(BUILD)
 	docker tag $(CI_REGISTRY_IMAGE)/$(image):$(BUILD) $(CI_REGISTRY_IMAGE)/$(image):${tag}
 	docker push $(CI_REGISTRY_IMAGE)/$(image):${tag}
