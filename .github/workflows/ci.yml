@@ -120,6 +120,7 @@ jobs:
           make deploy \
             image="nextjs" \
             tag="latest" \
+            BUILD="$(echo $CI_COMMIT_SHA | cut -c1-8)" \
             deployment="nextjs"
 
   nginx-deploy:
@@ -146,4 +147,5 @@ jobs:
           make deploy \
             image="nginx" \
             tag="latest" \
+            BUILD="$(echo $CI_COMMIT_SHA | cut -c1-8)" \
             deployment="nginx"
