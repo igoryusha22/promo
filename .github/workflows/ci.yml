@@ -56,7 +56,7 @@ jobs:
       - name: Build and Tag Next.js Image
         run: |
           make build \
-            image="nextjs"
+            image="nextjs" \
             dockerfile="./docker/nextjs/Dockerfile" \
             BUILD="$(CI_COMMIT_SHA:0:8)" \
             .
@@ -76,7 +76,7 @@ jobs:
       - name: Build and Tag Nginx Image
         run: |
           make build \
-            image="nginx"
+            image="nginx" \
             dockerfile="./docker/nginx/Dockerfile" \
             BUILD="$(CI_COMMIT_SHA:0:8)" \
             .
@@ -96,7 +96,7 @@ jobs:
       - name: Push Next.js Image To Registry
         run: |
           make registry \
-            image="nextjs"
+            image="nextjs" \
             BUILD="$(CI_COMMIT_SHA:0:8)" \
             .
 
@@ -115,7 +115,7 @@ jobs:
       - name: Push Nginx Image To Registry
         run: |
           make registry \
-            image="nginx"
+            image="nginx" \
             BUILD="$(CI_COMMIT_SHA:0:8)" \
             .
 
