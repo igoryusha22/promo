@@ -1,6 +1,5 @@
 name: "Checkout repository, Set up Node.js, Use cached node_modules, Install dependencies"
 description: "Reusable steps for multiple jobs"
-
 runs:
   using: "composite"
   steps:
@@ -21,4 +20,5 @@ runs:
           ${{ runner.os }}-node-
 
     - name: Install dependencies
+      shell: bash
       run: npm install
