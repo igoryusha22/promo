@@ -106,7 +106,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Setup kubectl
-        uses: ./.github/actions/kube.yml
+        uses: ./.github/actions/kube
 
       - name: Setup Docker
         uses: ./.github/actions/docker
@@ -128,7 +128,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Setup kubectl
-        uses: ./.github/actions/kube.yml
+        uses: ./.github/actions/kube
 
       - name: Setup Docker
         uses: ./.github/actions/docker
