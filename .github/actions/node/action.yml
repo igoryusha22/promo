@@ -3,9 +3,6 @@ description: "Reusable steps for multiple jobs"
 runs:
   using: "composite"
   steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:

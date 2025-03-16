@@ -18,6 +18,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name: Setup Node.js
         uses: ./.github/actions/node
 
@@ -29,6 +32,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name: Setup Node.js
         uses: ./.github/actions/node
 
@@ -41,6 +47,9 @@ jobs:
     needs: [lint, type-check]
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name: Setup Docker
         uses: ./.github/actions/docker
 
@@ -58,6 +67,9 @@ jobs:
     needs: [lint, type-check]
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name: Setup Docker
         uses: ./.github/actions/docker
 
@@ -75,6 +87,9 @@ jobs:
     needs: [nextjs-build]
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name: Setup Docker
         uses: ./.github/actions/docker
 
@@ -91,6 +106,9 @@ jobs:
     needs: [nginx-build]
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name: Setup Docker
         uses: ./.github/actions/docker
 
@@ -107,6 +125,9 @@ jobs:
     needs: [nextjs-push-registry]
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name: Setup kubectl
         uses: ./.github/actions/kube.yml
 
@@ -126,6 +147,9 @@ jobs:
     needs: [nginx-push-registry]
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name: Setup kubectl
         uses: ./.github/actions/kube.yml
 
