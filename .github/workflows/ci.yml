@@ -111,6 +111,7 @@ jobs:
           kube_api_server: ${{ secrets.KUBE_API_SERVER }}
           kube_token: ${{ secrets.KUBE_TOKEN }}
           kube_ca: ${{ secrets.KUBE_CA }}
+          kube_namespace: ${{ secrets.KUBE_NAMESPACE }}
 
       - name: Setup Docker
         uses: ./.github/actions/docker
@@ -138,6 +139,7 @@ jobs:
           kube_api_server: ${{ secrets.KUBE_API_SERVER }}
           kube_token: ${{ secrets.KUBE_TOKEN }}
           kube_ca: ${{ secrets.KUBE_CA }}
+          kube_namespace: ${{ secrets.KUBE_NAMESPACE }}
 
       - name: Setup Docker
         uses: ./.github/actions/docker
