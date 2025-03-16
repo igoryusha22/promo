@@ -4,7 +4,8 @@ build:
 	docker build \
 	--platform linux/amd64 \
 	-t $(CI_REGISTRY_IMAGE)/${image}:$(BUILD) \
-	-f ${dockerfile} .
+	-f ${dockerfile} \
+	.
 
 registry:
 	docker login -u $(CI_REGISTRY_USER) -p $(CI_REGISTRY_PASSWORD) $(CI_REGISTRY)
