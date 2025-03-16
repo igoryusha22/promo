@@ -58,7 +58,7 @@ jobs:
           make build \
             image="nextjs" \
             dockerfile="./docker/nextjs/Dockerfile" \
-            BUILD="$(echo $(CI_COMMIT_SHA) | cut -c1-8)" \
+            BUILD="$(echo $CI_COMMIT_SHA | cut -c1-8)" \
             .
 
   nginx-build:
@@ -78,7 +78,7 @@ jobs:
           make build \
             image="nginx" \
             dockerfile="./docker/nginx/Dockerfile" \
-            BUILD="$(echo $(CI_COMMIT_SHA) | cut -c1-8)" \
+            BUILD="$(echo $CI_COMMIT_SHA | cut -c1-8)" \
             .
 
   nextjs-push-registry:
@@ -97,7 +97,7 @@ jobs:
         run: |
           make registry \
             image="nextjs" \
-            BUILD="$(echo $(CI_COMMIT_SHA) | cut -c1-8)" \
+            BUILD="$(echo $CI_COMMIT_SHA | cut -c1-8)" \
             .
 
   nginx-push-registry:
@@ -116,7 +116,7 @@ jobs:
         run: |
           make registry \
             image="nginx" \
-            BUILD="$(echo $(CI_COMMIT_SHA) | cut -c1-8)" \
+            BUILD="$(echo $CI_COMMIT_SHA | cut -c1-8)" \
             .
 
   nextjs-deploy:
