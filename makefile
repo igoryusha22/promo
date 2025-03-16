@@ -1,37 +1,18 @@
-BUILD_DATE = $(shell date +%Y_%m_%d_%H_%M_%S)
-
-REGISTRY := registry.igoryusha.love/promo
-
-up:
-	docker-compose up
-
-grd:
-	make build
-	make push
+BUILD=$(shell git log --pretty=format:'%h' -n 1)
 
 build:
-	make -j 3 build.nextjs build.nginx build.write
+	docker build \
+	--platform linux/amd64 \
+	-t $(CI_REGISTRY_IMAGE)/${image}:$(BUILD) \
+	-f ${dockerfile} .
 
-build.nextjs:
-	DOCKER_BUILDKIT=1 docker build \
-		--platform linux/amd64 \
-		-f ./docker/nextjs/Dockerfile . \
-		-t ${REGISTRY}/nextjs:build_${BUILD_DATE}
+registry:
+	docker login -u $(CI_REGISTRY_USER) -p $(CI_REGISTRY_PASSWORD) $(CI_REGISTRY)
+	docker push $(CI_REGISTRY_IMAGE)/${image}:$(BUILD)
 
-build.nginx:
-	DOCKER_BUILDKIT=1 docker build \
-		--platform linux/amd64 \
-		-f ./docker/nginx/Dockerfile . \
-		-t ${REGISTRY}/nginx:build_${BUILD_DATE}
-
-build.write:
-	echo ${BUILD_DATE} > last_build_date.txt
-
-push:
-	make -j 2 push.nextjs push.nginx
-
-push.nextjs:
-	docker push ${REGISTRY}/nextjs:build_$(shell cat last_build_date.txt)
-
-push.nginx:
-	docker push ${REGISTRY}/nginx:build_$(shell cat last_build_date.txt)
+deploy:
+	docker login -u $(CI_REGISTRY_USER) -p $(CI_REGISTRY_PASSWORD) $(CI_REGISTRY)
+	docker pull $(CI_REGISTRY_IMAGE)/${image}:$(BUILD)
+	docker tag $(CI_REGISTRY_IMAGE)/${image}:$(BUILD) $(CI_REGISTRY_IMAGE)/${image}:${tag}
+	docker push $(CI_REGISTRY_IMAGE)/${image}:${tag}
+	KUBECONFIG=${KUBECONFIG} kubectl rollout restart deployments/${deployment}

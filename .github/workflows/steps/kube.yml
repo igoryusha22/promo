@@ -1,0 +1,22 @@
+name: "Setup kubectl"
+description: "Installs kubectl and configures the Kubernetes context"
+runs:
+  using: "composite"
+  steps:
+    - name: Install kubectl
+      uses: azure/setup-kubectl@v3
+      with:
+        version: "latest"
+
+    - name: Configure Kubernetes context
+      shell: bash
+      env:
+        KUBE_API_SERVER: ${{ secrets.KUBE_API_SERVER }}
+        KUBE_TOKEN: ${{ secrets.KUBE_TOKEN }}
+        KUBE_CA: ${{ secrets.KUBE_CA }}
+      run: |
+        kubectl config set-cluster igoryusha22-cluster --server=${KUBE_API_SERVER} --certificate-authority=$(echo "${KUBE_CA}" | base64 --decode)
+        kubectl config set-credentials deployer --token=$(echo "${KUBE_TOKEN}" | base64 --decode)
+        kubectl config set-context deploy-context --cluster=igoryusha22-cluster --user=deployer
+        kubectl config use-context deploy-context
+
