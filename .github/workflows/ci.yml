@@ -43,7 +43,7 @@ jobs:
         run: npm run type-check
 
   nextjs-build:
-    name: Build Next.js Image
+    name: Build Next.js Image And Push To Registry
     runs-on: ubuntu-latest
     needs: [lint, type-check]
 
@@ -62,8 +62,15 @@ jobs:
             BUILD="$(echo $CI_COMMIT_SHA | cut -c1-8)" \
             .
 
+      - name: Push Next.js Image To Registry
+        run: |
+          make registry \
+            image="nextjs" \
+            BUILD="$(echo $CI_COMMIT_SHA | cut -c1-8)" \
+            .
+
   nginx-build:
-    name: Build Nginx Image
+    name: Build Nginx Image And Push To Registry
     runs-on: ubuntu-latest
     needs: [lint, type-check]
 
@@ -81,37 +88,6 @@ jobs:
             dockerfile="./docker/nginx/Dockerfile" \
             BUILD="$(echo $CI_COMMIT_SHA | cut -c1-8)" \
             .
-
-  nextjs-push-registry:
-    name: Push Next.js Image To Registry
-    runs-on: ubuntu-latest
-    needs: [nextjs-build]
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Setup Docker
-        uses: ./.github/actions/docker
-
-      - name: Push Next.js Image To Registry
-        run: |
-          make registry \
-            image="nextjs" \
-            BUILD="$(echo $CI_COMMIT_SHA | cut -c1-8)" \
-            .
-
-  nginx-push-registry:
-    name: Push Nginx Image To Registry
-    runs-on: ubuntu-latest
-    needs: [nginx-build]
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Setup Docker
-        uses: ./.github/actions/docker
 
       - name: Push Nginx Image To Registry
         run: |
