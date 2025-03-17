@@ -19,4 +19,5 @@ deploy:
 	docker pull $(CI_REGISTRY_IMAGE)/$(image):$(BUILD)
 	docker tag $(CI_REGISTRY_IMAGE)/$(image):$(BUILD) $(CI_REGISTRY_IMAGE)/$(image):${tag}
 	docker push $(CI_REGISTRY_IMAGE)/$(image):${tag}
+	kubectl config view --minify
 	kubectl rollout restart deployments/${deployment}
