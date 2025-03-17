@@ -23,9 +23,9 @@ runs:
 
     - name: Debug Environment Variables
       run: |
-        echo "KUBE API SERVER: $(echo "${INPUT_KUBE_API_SERVER}" | base64 --decode | head -c 11  # Print first 10 chars for verification)"
-        echo "KUBE TOKEN: $(echo "${INPUT_KUBE_TOKEN}" | base64 --decode | head -c 10  # Print first 10 chars for verification)
-        echo "KUBE CA: $(echo "${INPUT_KUBE_CA}" | base64 --decode | head -c 10  # Print first 10 chars for verification)
+        echo "KUBE API SERVER: $(echo "${INPUT_KUBE_API_SERVER}" | base64 --decode | head -c 11)"
+        echo "KUBE TOKEN: $(echo "${INPUT_KUBE_TOKEN}" | base64 --decode | head -c 10)"
+        echo "KUBE CA: $(echo "${INPUT_KUBE_CA}" | base64 --decode | head -c 10)"
       shell: bash
 
     - name: Configure Kubernetes context
