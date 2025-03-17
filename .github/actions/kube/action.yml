@@ -21,19 +21,11 @@ runs:
       with:
         version: "latest"
 
-    - name: Debug Environment Variables
-      run: |
-        echo "KUBE API SERVER: $(echo "${INPUT_KUBE_API_SERVER}" | base64 --decode | head -c 11)"
-        echo "KUBE TOKEN: $(echo "${INPUT_KUBE_TOKEN}" | base64 --decode | head -c 10)"
-        echo "KUBE CA: $(echo "${INPUT_KUBE_CA}" | base64 --decode | head -c 10)"
-      shell: bash
-
     - name: Configure Kubernetes context
       shell: bash
       run: |
-        echo "${INPUT_KUBE_CA}" | base64 --decode > /tmp/ca.crt
-        kubectl config set-cluster igoryusha22-cluster --server="${INPUT_KUBE_API_SERVER}" --certificate-authority="/tmp/ca.crt"
-        kubectl config set-credentials deployer --token=$(echo "${INPUT_KUBE_TOKEN}" | base64 --decode)
-        kubectl config set-context deploy-context --cluster=igoryusha22-cluster --user=deployer --namespace="${INPUT_KUBE_NAMESPACE}"
+        echo "${{ inputs.kube_ca }}" | base64 --decode > /tmp/ca.crt
+        kubectl config set-cluster igoryusha22-cluster --server="${{ inputs.kube_api_server }}" --certificate-authority=/tmp/ca.crt
+        kubectl config set-credentials deployer --token="${{ inputs.kube_token }}"
+        kubectl config set-context deploy-context --cluster=igoryusha22-cluster --user=deployer --namespace="${{ inputs.kube_namespace }}"
         kubectl config use-context deploy-context
-        kubectl config view --minify
