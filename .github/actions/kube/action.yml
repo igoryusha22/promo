@@ -26,6 +26,6 @@ runs:
       run: |
         echo "${{ inputs.kube_ca }}" | base64 --decode > /tmp/ca.crt
         kubectl config set-cluster igoryusha22-cluster --server="${{ inputs.kube_api_server }}" --certificate-authority=/tmp/ca.crt
-        kubectl config set-credentials deployer --token="${{ inputs.kube_token }}"
+        kubectl config set-credentials deployer --token="$(echo "${{ inputs.kube_token }}"" | base64 --decode)"
         kubectl config set-context deploy-context --cluster=igoryusha22-cluster --user=deployer --namespace="${{ inputs.kube_namespace }}"
         kubectl config use-context deploy-context
