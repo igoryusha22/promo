@@ -59,7 +59,7 @@ const Home = () => {
 
         <Text as="p" size="lg">
           Не боюсь legacy, ищу вызовы, люблю сложные задачи, хочу в неизведанное{' '}
-          <span className={cx('line-through')}>и много денег</span>.
+          <span className={cx('line-through')}>и очень много денег</span>.
         </Text>
 
         <Text as="p" size="lg">
