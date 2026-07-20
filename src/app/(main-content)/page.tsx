@@ -19,7 +19,7 @@ const Home = () => {
           <Link variant="solid" weight="bold" href={TELEGRAM_LINK} isExternal>
             @igoryusha22
           </Link>
-          , frontend архитектор в{' '}
+          , Head of frontend в{' '}
           <Link
             variant="solid"
             weight="bold"
@@ -82,7 +82,7 @@ const Home = () => {
           >
             Faceit
           </Link>
-          , посматриваю{' '}
+          и посматриваю{' '}
           <Link
             variant="solid"
             weight="bold"
@@ -90,8 +90,8 @@ const Home = () => {
             isExternal
           >
             Suits
-          </Link>{' '}
-          и двигаюсь к цели &quot;CTO в 25&quot;.
+          </Link>
+          .
         </Text>
       </TextGroup>
     </main>
