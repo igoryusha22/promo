@@ -81,7 +81,7 @@ const Home = () => {
             isExternal
           >
             Faceit
-          </Link>
+          </Link>{' '}
           и посматриваю{' '}
           <Link
             variant="solid"
